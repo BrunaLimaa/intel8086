@@ -17,7 +17,7 @@ MAIN PROC
     INT 21h
 
     ;add
-    mov al, 5
+    mov al, 1
     add al, 3
 
 
