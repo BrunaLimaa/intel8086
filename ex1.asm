@@ -17,21 +17,27 @@ MAIN PROC
     INT 21h
 
     ;add
-    mov al, 1
-    add al, 3
+    mov al, 10
+    add al, 5
 
 
-    ;convert to hex
+   ;convert to hex
+
+   ;if <= 9
+   cmp al, 9
+   jbe print
+   add al,7 ;if >9, add 7 to jump from 39h(9) to 41h(A).
+
+ print:
     add al,30h
     mov number,al
 
     ;print add
-
     mov ah, 02h
-    lea dx, number
-
+    mov dl, number
+    int 21h
     
-
+;exit 
     MOV AH, 4Ch      ; Function to terminate the program
     INT 21h          ; Call DOS interrupt to exit
 MAIN ENDP
